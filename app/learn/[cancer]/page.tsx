@@ -94,7 +94,7 @@ export default async function CancerDetailPage({ params }: PageProps) {
               style={{ fontSize: "1.25rem", fontWeight: 900 }}
               aria-hidden="true"
             >
-              ✳
+              *
             </span>
             <span
               className="text-sm font-bold hidden sm:block"

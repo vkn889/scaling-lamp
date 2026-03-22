@@ -36,7 +36,7 @@ export function Footer() {
                 style={{ fontSize: "1.5rem", fontWeight: 900 }}
                 aria-hidden="true"
               >
-                ✳
+                *
               </span>
               <span
                 className="text-[#F2E9E4] font-bold text-lg tracking-tight"

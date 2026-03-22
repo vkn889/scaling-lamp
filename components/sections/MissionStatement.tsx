@@ -69,17 +69,17 @@ export function MissionStatement() {
             <div className="grid grid-cols-1 gap-4">
               {[
                 {
-                  icon: "✦",
+                  icon: "+",
                   label: "Educate",
                   desc: "25 cancer types broken down in plain language — causes, symptoms, treatment, survival rates.",
                 },
                 {
-                  icon: "◈",
+                  icon: "○",
                   label: "Empower",
                   desc: "Arm patients, families, and caregivers with the questions they need to ask before the appointment ends.",
                 },
                 {
-                  icon: "✳",
+                  icon: "*",
                   label: "Fight",
                   desc: "Advocate for more research funding, better screening access, and cancer literacy in every community.",
                 },

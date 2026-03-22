@@ -90,7 +90,7 @@ export function Navigation() {
               }}
               aria-hidden="true"
             >
-              ✳
+              *
             </span>
             <span
               className="font-bold tracking-tight text-[#F2E9E4] group-hover:text-[#C9ADA7] transition-colors duration-200 text-[0.95rem]"

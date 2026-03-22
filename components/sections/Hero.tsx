@@ -149,7 +149,7 @@ export function Hero() {
               opacity: 0.85,
             }}
           >
-            ✳
+            *
           </span>
         </motion.div>
       </div>
