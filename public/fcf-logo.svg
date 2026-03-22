@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="58" fill="#22223B" stroke="#C9ADA7" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <!-- Inner glow ring -->
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#C9ADA7" stroke-width="0.5" stroke-opacity="0.15"/>
+
+  <!-- Six-pointed asterisk / ✳ symbol -->
+  <!-- Vertical bar -->
+  <rect x="57.5" y="22" width="5" height="36" rx="2.5" fill="#C9ADA7"/>
+  <!-- Bar rotated 60° -->
+  <rect x="57.5" y="22" width="5" height="36" rx="2.5" fill="#C9ADA7" transform="rotate(60 60 60)"/>
+  <!-- Bar rotated 120° -->
+  <rect x="57.5" y="22" width="5" height="36" rx="2.5" fill="#C9ADA7" transform="rotate(120 60 60)"/>
+  <!-- Bar rotated 180° -->
+  <rect x="57.5" y="62" width="5" height="36" rx="2.5" fill="#C9ADA7"/>
+  <!-- Bar rotated 240° -->
+  <rect x="57.5" y="22" width="5" height="36" rx="2.5" fill="#C9ADA7" transform="rotate(240 60 60)"/>
+  <!-- Bar rotated 300° -->
+  <rect x="57.5" y="22" width="5" height="36" rx="2.5" fill="#C9ADA7" transform="rotate(300 60 60)"/>
+
+  <!-- Center dot -->
+  <circle cx="60" cy="60" r="6" fill="#C9ADA7"/>
+  <circle cx="60" cy="60" r="3" fill="#22223B"/>
+
+  <!-- FCF text below -->
+  <text
+    x="60"
+    y="102"
+    text-anchor="middle"
+    font-family="system-ui, sans-serif"
+    font-size="10"
+    font-weight="700"
+    letter-spacing="3"
+    fill="#9A8C98"
+  >FCF</text>
+</svg>

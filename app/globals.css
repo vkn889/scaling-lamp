@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+:root {
+  --space-indigo: #22223B;
+  --dusty-grape: #4A4E69;
+  --lilac-ash: #9A8C98;
+  --almond-silk: #C9ADA7;
+  --parchment: #F2E9E4;
+}
+
+@theme inline {
+  --color-space-indigo: var(--space-indigo);
+  --color-dusty-grape: var(--dusty-grape);
+  --color-lilac-ash: var(--lilac-ash);
+  --color-almond-silk: var(--almond-silk);
+  --color-parchment: var(--parchment);
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-display: var(--font-syne), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--space-indigo);
+  color: var(--parchment);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Noise grain texture */
+.noise {
+  position: relative;
+}
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: soft-light;
+  opacity: 0.5;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #C9ADA7 0%, #F2E9E4 50%, #C9ADA7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow on asterisk */
+.asterisk-glow {
+  filter: drop-shadow(0 0 18px rgba(201, 173, 167, 0.45)) drop-shadow(0 0 40px rgba(201, 173, 167, 0.2));
+}
+
+/* Spinning asterisk logo */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: spin-slow 14s linear infinite;
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Gradient border glow for cards */
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(201,173,167,0.3), rgba(74,78,105,0.1), rgba(201,173,167,0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spin-slow { animation: none; }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--space-indigo); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4A4E69, #9A8C98);
+  border-radius: 2px;
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid var(--almond-silk);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Selection */
+::selection {
+  background: var(--almond-silk);
+  color: var(--space-indigo);
+}
+
+/* ── Animation utilities ── */
+@keyframes fade-in-up {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes scale-in {
+  0%   { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in-up  { animation: fade-in-up  0.55s ease-out forwards; }
+.animate-fade-in     { animation: fade-in     0.55s ease-out forwards; }
+.animate-scale-in    { animation: scale-in    0.55s ease-out forwards; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+.fade-top-lg {
+  mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,1) 8rem);
+}
