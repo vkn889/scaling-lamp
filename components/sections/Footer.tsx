@@ -31,13 +31,13 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span
-                className="text-[#C9ADA7] spin-slow"
-                style={{ fontSize: "1.5rem", fontWeight: 900 }}
+              <img
+                src="/asterisk.svg"
+                alt=""
                 aria-hidden="true"
-              >
-                *
-              </span>
+                className="spin-slow"
+                style={{ width: "1.5rem", height: "1.5rem" }}
+              />
               <span
                 className="text-[#F2E9E4] font-bold text-lg tracking-tight"
                 style={{ fontFamily: "var(--font-syne)" }}

@@ -77,21 +77,17 @@ export function Navigation() {
             className="flex items-center gap-2.5 group focus-visible:outline-none flex-shrink-0"
             aria-label="Fight Cancer Foundation — Home"
           >
-            <span
-              className="spin-slow select-none leading-none"
-              style={{
-                fontFamily: "var(--font-syne), system-ui",
-                fontWeight: 900,
-                fontSize: "1.35rem",
-                color: "#C9ADA7",
-                lineHeight: 1,
-                display: "inline-block",
-                filter: "drop-shadow(0 0 10px rgba(201,173,167,0.55)) drop-shadow(0 0 28px rgba(201,173,167,0.22))",
-              }}
+            <img
+              src="/asterisk.svg"
+              alt=""
               aria-hidden="true"
-            >
-              *
-            </span>
+              className="spin-slow"
+              style={{
+                width: "1.4rem",
+                height: "1.4rem",
+                filter: "drop-shadow(0 0 6px rgba(201,173,167,0.55))",
+              }}
+            />
             <span
               className="font-bold tracking-tight text-[#F2E9E4] group-hover:text-[#C9ADA7] transition-colors duration-200 text-[0.95rem]"
               style={{ fontFamily: "var(--font-syne)" }}

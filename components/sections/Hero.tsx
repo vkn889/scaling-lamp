@@ -137,20 +137,18 @@ export function Hero() {
           className="flex-shrink-0 flex items-center justify-center lg:w-[52%]"
           aria-hidden="true"
         >
-          <span
-            className="spin-slow asterisk-glow select-none"
+          <img
+            src="/asterisk.svg"
+            alt=""
+            aria-hidden="true"
+            className="spin-slow select-none"
             style={{
-              fontSize: "clamp(12rem, 36vw, 32rem)",
-              fontWeight: 900,
-              lineHeight: 1,
-              color: "#C9ADA7",
-              fontFamily: "var(--font-syne), system-ui",
-              display: "block",
+              width: "clamp(12rem, 36vw, 32rem)",
+              height: "clamp(12rem, 36vw, 32rem)",
               opacity: 0.85,
+              filter: "drop-shadow(0 0 40px rgba(201,173,167,0.25))",
             }}
-          >
-            *
-          </span>
+          />
         </motion.div>
       </div>
 

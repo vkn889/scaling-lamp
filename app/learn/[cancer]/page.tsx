@@ -89,13 +89,13 @@ export default async function CancerDetailPage({ params }: PageProps) {
             className="flex items-center gap-2 text-[#9A8C98] hover:text-[#F2E9E4] transition-colors duration-200"
             aria-label="Fight Cancer Foundation Home"
           >
-            <span
-              className="spin-slow text-[#C9ADA7]"
-              style={{ fontSize: "1.25rem", fontWeight: 900 }}
+            <img
+              src="/asterisk.svg"
+              alt=""
               aria-hidden="true"
-            >
-              *
-            </span>
+              className="spin-slow"
+              style={{ width: "1.25rem", height: "1.25rem" }}
+            />
             <span
               className="text-sm font-bold hidden sm:block"
               style={{ fontFamily: "var(--font-syne)" }}
