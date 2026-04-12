@@ -26,22 +26,55 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fight Cancer Foundation — Fight. Freedom.",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.fcancers.com"
+  ),
+  title: {
+    default: "Fight Cancer Foundation | Cancer Education Nonprofit",
+    template: "%s | Fight Cancer Foundation",
+  },
   description:
-    "Educating the world about cancer — the disease, the cost, and the fight. No one should face it uninformed, unprepared, or alone.",
+    "Fight Cancer Foundation (FCF) is a nonprofit dedicated to cancer education — the disease, the cost, and the fight. No one should face it uninformed, unprepared, or alone.",
+  keywords: [
+    "Fight Cancer Foundation",
+    "FCF",
+    "F* Cancer Foundation",
+    "F cancer foundation",
+    "cancer nonprofit",
+    "nonprofit cancer education",
+    "cancer foundation",
+    "cancer awareness",
+    "cancer education",
+    "cancer types",
+    "cancer treatment",
+    "cancer research nonprofit",
+    "cancer support organization",
+  ],
+  authors: [{ name: "Fight Cancer Foundation" }],
+  category: "health",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Fight Cancer Foundation",
+    title: "Fight Cancer Foundation | Cancer Education Nonprofit",
     description:
-      "Fight. Freedom. Education, awareness, and action against cancer.",
+      "FCF is a nonprofit dedicated to cancer education — the disease, the cost, and the fight. No one should face it uninformed, unprepared, or alone.",
     type: "website",
     siteName: "Fight Cancer Foundation",
+    locale: "en_US",
+    url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fight Cancer Foundation",
-    description: "Fight. Freedom.",
+    title: "Fight Cancer Foundation | Cancer Education Nonprofit",
+    description:
+      "FCF is a nonprofit dedicated to cancer education — the disease, the cost, and the fight.",
   },
-  keywords: ["cancer", "cancer education", "cancer awareness", "cancer foundation", "cancer types", "treatment costs"],
 };
 
 export default function RootLayout({

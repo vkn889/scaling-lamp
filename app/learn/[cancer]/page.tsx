@@ -16,13 +16,37 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { cancer: slug } = await params;
   const cancer = CANCERS.find((c) => c.id === slug);
   if (!cancer) return { title: "Not Found" };
+
+  const title = `${cancer.fullName} — Symptoms, Treatment & Statistics`;
+  const description = `${cancer.summary} Learn about symptoms, diagnosis methods, treatment options, risk factors, and survival statistics from Fight Cancer Foundation (FCF).`;
+
   return {
-    title: `${cancer.fullName} — Fight Cancer Foundation`,
-    description: cancer.summary,
+    title,
+    description,
+    alternates: {
+      canonical: `/learn/${slug}`,
+    },
+    keywords: [
+      cancer.fullName,
+      cancer.name,
+      `${cancer.name} symptoms`,
+      `${cancer.name} treatment`,
+      `${cancer.name} diagnosis`,
+      `${cancer.name} survival rate`,
+      "cancer education",
+      "Fight Cancer Foundation",
+      "FCF",
+    ],
     openGraph: {
-      title: `${cancer.fullName} — Fight Cancer Foundation`,
-      description: cancer.summary,
+      title: `${cancer.fullName} | Fight Cancer Foundation`,
+      description,
       type: "article",
+      url: `/learn/${slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cancer.fullName} | Fight Cancer Foundation`,
+      description,
     },
   };
 }
@@ -67,8 +91,71 @@ export default async function CancerDetailPage({ params }: PageProps) {
 
   if (!cancer) notFound();
 
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.fcancers.com";
+
+  const medicalWebPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: `${cancer.fullName} — Symptoms, Treatment & Statistics`,
+    description: cancer.summary,
+    url: `${siteUrl}/learn/${slug}`,
+    about: {
+      "@type": "MedicalCondition",
+      name: cancer.fullName,
+      alternateName: cancer.name !== cancer.fullName ? cancer.name : undefined,
+      description: cancer.overview,
+      signOrSymptom: cancer.symptoms.map((s) => ({
+        "@type": "MedicalSymptom",
+        name: s,
+      })),
+      riskFactor: cancer.riskFactors.map((r) => ({
+        "@type": "MedicalRiskFactor",
+        name: r,
+      })),
+      possibleTreatment: cancer.treatmentOptions.map((t) => ({
+        "@type": "MedicalTherapy",
+        name: t,
+      })),
+    },
+    publisher: {
+      "@type": "NGO",
+      name: "Fight Cancer Foundation",
+      url: siteUrl,
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: siteUrl,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Cancer Education Hub",
+          item: `${siteUrl}/learn`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: cancer.fullName,
+          item: `${siteUrl}/learn/${slug}`,
+        },
+      ],
+    },
+  };
+
   return (
     <div className="min-h-screen bg-[#22223B]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalWebPageSchema),
+        }}
+      />
       {/* Top bar */}
       <div className="border-b border-white/5 bg-[#22223B]/95 backdrop-blur-md sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
